@@ -1,0 +1,254 @@
+/* TrackRepair.module.css */
+
+.page {
+  min-height: calc(100vh - var(--nav-h));
+  padding: 56px 24px 80px;
+  background: var(--bg-soft);
+}
+.container { max-width: 680px; }
+
+.pageHead { margin-bottom: 32px; }
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 32px; font-weight: 800;
+  color: var(--navy); letter-spacing: -.02em; margin-bottom: 8px;
+}
+.pageSub { font-size: 15px; color: var(--muted); }
+
+/* ── Search bar ────────────────────────────────────────────── */
+.searchWrap {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.searchBox {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 0 16px;
+  gap: 10px;
+  transition: all var(--t-base);
+}
+.searchBox:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37,99,235,.08); }
+.searchError { border-color: var(--red) !important; }
+.searchIcon { color: var(--subtle); flex-shrink: 0; }
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  background: transparent;
+  padding: 14px 0;
+  letter-spacing: .05em;
+}
+.searchInput::placeholder { color: var(--border); font-weight: 400; font-family: var(--font-body); font-size: 15px; letter-spacing: 0; }
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--subtle);
+  font-size: 16px;
+  padding: 4px;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+.clearBtn:hover { color: var(--slate); }
+
+.mb24 { margin-bottom: 24px; }
+
+/* ── Empty state ───────────────────────────────────────────── */
+.emptyState {
+  text-align: center;
+  padding: 80px 24px;
+}
+.emptyIcon {
+  width: 64px; height: 64px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--border);
+}
+.emptyTitle { font-size: 17px; font-weight: 600; color: var(--slate); margin-bottom: 8px; }
+.emptySub { font-size: 14px; color: var(--subtle); line-height: 1.7; }
+
+/* ── Result card ───────────────────────────────────────────── */
+.resultCard {
+  background: #fff;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.resultHeader {
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #F8FAFC, #fff);
+}
+/* Removed empty .resultHeaderLeft ruleset */
+.resultHeaderRight { display: flex; align-items: center; gap: 8px; }
+.resultIdLabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 5px;
+}
+.resultId {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: .04em;
+}
+.statusDot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.refreshBtn { padding: 6px 8px; }
+
+/* Info grid */
+.infoGrid {
+  padding: 20px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  transition: background var(--t-fast);
+}
+.infoItem:hover { background: var(--bg-soft); }
+.infoLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.infoValue { font-size: 14px; font-weight: 600; color: var(--navy); }
+
+/* ── Timeline ──────────────────────────────────────────────── */
+.timelineWrap { padding: 24px 28px; }
+.timelineTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 24px;
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.tlItem {
+  display: flex;
+  gap: 18px;
+  padding-bottom: 28px;
+  position: relative;
+  align-items: flex-start;
+}
+.tlItem:last-child { padding-bottom: 0; }
+
+.tlLine {
+  position: absolute;
+  left: 17px;
+  top: 36px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+  transition: background .5s ease;
+}
+.tlLineDone { background: var(--green); }
+
+.tlDot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+  color: var(--subtle);
+  transition: all .35s ease;
+}
+.tlDotDone {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(22,163,74,.1);
+}
+.tlDotActive {
+  background: var(--blue-light);
+  border-color: var(--blue);
+  color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.1);
+}
+.tlDotNum { font-size: 12px; font-weight: 700; color: var(--subtle); }
+
+.tlText {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tlLabel { font-size: 15px; font-weight: 700; color: var(--navy); }
+.tlLabelFuture { color: var(--subtle); font-weight: 500; }
+.tlDesc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.tlDoneTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  margin-top: 2px;
+}
+.tlActiveTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 2px;
+}
+.pulseDot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.completedAlert { margin: 0 28px 24px; }
+
+@media (max-width: 560px) {
+  .searchWrap { flex-direction: column; }
+  .infoGrid { grid-template-columns: 1fr; }
+  .resultHeader { flex-direction: column; gap: 12px; }
+  .timelineWrap, .resultHeader, .infoGrid { padding-left: 20px; padding-right: 20px; }
+}

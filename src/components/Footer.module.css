@@ -1,0 +1,171 @@
+/* Footer.module.css — Light, clean design matching the white frontend */
+
+.footer {
+  background: var(--bg-soft);
+  border-top: 2px solid var(--border);
+  padding: 60px 24px 0;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── 4-column grid ─────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1.9fr 1fr 1.2fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Brand column ──────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  background: var(--blue);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.logoName {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -.01em;
+}
+
+.tagline {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 18px;
+  max-width: 300px;
+}
+
+.hoursBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--blue-light);
+  border: 1.5px solid var(--blue-mid);
+  border-radius: 10px;
+  padding: 11px 14px;
+  width: fit-content;
+}
+.hoursIcon  { color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+.hoursDay   { font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: .02em; }
+.hoursTime  { font-size: 13px; color: var(--blue); font-weight: 600; margin-top: 2px; }
+
+/* ── Column titles ─────────────────────────────────────────── */
+.colTitle {
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--blue);
+  display: inline-block;
+}
+
+/* ── Link list ─────────────────────────────────────────────── */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.listLink {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color .2s, padding-left .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.listLink::before {
+  content: '›';
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.listLink:hover { color: var(--blue); padding-left: 4px; }
+.listLink:hover::before { opacity: 1; }
+
+.listItem {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.listItem::before {
+  content: '·';
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ── Contact list ──────────────────────────────────────────── */
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.contactList li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--blue);
+}
+
+/* ── Bottom bar ────────────────────────────────────────────── */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 22px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.copy {
+  font-size: 13px;
+  color: var(--subtle);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
+  .brand { grid-column: auto; }
+  .footer { padding: 44px 20px 0; }
+  .bottom { flex-direction: column; align-items: flex-start; gap: 4px; }
+}

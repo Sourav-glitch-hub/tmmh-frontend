@@ -1,0 +1,254 @@
+/* ============================================================
+   SubmitRepair.module.css — Fully Responsive
+   Breakpoints: 768px (tablet) · 640px (mobile) · 400px (small)
+   ============================================================ */
+
+/* ── Page wrapper ──────────────────────────────────────────── */
+.page {
+  min-height: calc(100vh - var(--nav-h));
+  padding: 56px 24px 80px;
+  background: var(--bg-soft);
+}
+.container { max-width: 720px; }
+
+/* ── Page heading ──────────────────────────────────────────── */
+.pageHead  { margin-bottom: 32px; }
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 32px; font-weight: 800;
+  color: var(--navy); letter-spacing: -.02em; margin-bottom: 8px;
+}
+.pageSub { font-size: 15px; color: var(--muted); }
+
+/* ── Step progress bar ─────────────────────────────────────── */
+.stepBar {
+  display: flex; align-items: center;
+  margin-bottom: 28px; overflow: hidden;
+}
+.stepItem {
+  display: flex; align-items: center;
+  gap: 8px; flex: 1; min-width: 0; position: relative;
+}
+.stepCircle {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--subtle); transition: all .3s ease; z-index: 1;
+}
+.stepLabel {
+  font-size: 13px; font-weight: 600; color: var(--subtle);
+  white-space: nowrap; transition: color .3s;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.stepActive .stepCircle {
+  background: var(--blue); border-color: var(--blue); color: #fff;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+.stepActive .stepLabel { color: var(--blue); }
+.stepDone  .stepCircle { background: var(--green); border-color: var(--green); color: #fff; }
+.stepDone  .stepLabel  { color: var(--green); }
+.stepLine  {
+  flex: 1; height: 2px; background: var(--border);
+  margin: 0 6px; transition: background .4s; min-width: 12px;
+}
+.stepLineDone { background: var(--green); }
+
+/* ── Form card ─────────────────────────────────────────────── */
+.formCard {
+  background: #fff; border-radius: var(--r-xl);
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.alertMb       { margin: 20px 28px 0; }
+.stepContent   { padding: 28px 28px 0; }
+.stepTitle     { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.stepSub       { font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.55; }
+.formGrid      { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.req           { color: var(--red); }
+.optional      { color: var(--subtle); font-weight: 400; text-transform: none; font-size: 12px; }
+
+/* ── Problem type tiles ────────────────────────────────────── */
+.problemGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px; margin-top: 6px;
+}
+.problemBtn {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 7px; padding: 14px 10px;
+  background: var(--bg-soft); border: 1.5px solid var(--border);
+  border-radius: var(--r-md); cursor: pointer;
+  transition: all var(--t-base); font-family: var(--font-body);
+}
+.problemBtn:hover      { border-color: var(--blue); background: var(--blue-light); }
+.problemBtnActive      { border-color: var(--blue) !important; background: var(--blue-light) !important; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+.problemIcon           { font-size: 22px; line-height: 1; }
+.problemLabel          { font-size: 12px; font-weight: 600; color: var(--slate); text-align: center; line-height: 1.3; }
+.problemBtnActive .problemLabel { color: var(--blue); }
+.charCount             { font-size: 12px; color: var(--subtle); text-align: right; margin-top: 4px; }
+
+/* ── Upload zone ───────────────────────────────────────────── */
+.uploadZone {
+  border: 2px dashed var(--border); border-radius: var(--r-lg);
+  padding: 28px 20px; text-align: center;
+  cursor: pointer; transition: all var(--t-base); background: var(--bg-soft);
+}
+.uploadZone:hover, .uploadDrag { border-color: var(--blue); background: var(--blue-light); }
+.uploadIcon                   { color: var(--blue-mid); margin: 0 auto 10px; }
+.uploadZone:hover .uploadIcon,
+.uploadDrag .uploadIcon       { color: var(--blue); }
+.uploadText                   { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.uploadText span               { color: var(--blue); font-weight: 600; }
+.uploadHint                   { font-size: 12px; color: var(--subtle); }
+.uploadPreview {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; background: var(--bg-soft);
+  border: 1px solid var(--border); border-radius: var(--r-md); margin-top: 10px;
+}
+.uploadPreviewImg              { width: 40px; height: 40px; border-radius: var(--r-sm); overflow: hidden; flex-shrink: 0; border: 1px solid var(--border); }
+.uploadPreviewImg img          { width: 100%; height: 100%; object-fit: cover; }
+.uploadPreviewName             { font-size: 13px; color: var(--slate); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Bottom nav buttons ────────────────────────────────────── */
+.navBtns {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px; border-top: 1px solid var(--border);
+  margin-top: 24px; background: var(--bg-soft); gap: 12px;
+}
+.navRight  { display: flex; align-items: center; gap: 12px; }
+.stepCount { font-size: 13px; color: var(--subtle); white-space: nowrap; }
+.hint      { font-size: 13px; color: var(--subtle); text-align: center; margin-top: 14px; }
+
+/* ── Success screen ────────────────────────────────────────── */
+.successWrap {
+  background: #fff; border-radius: var(--r-xl);
+  border: 1px solid var(--border); box-shadow: var(--shadow-lg);
+  padding: 48px 36px; text-align: center;
+  max-width: 520px; margin: 32px auto;
+  width: 100%; overflow: hidden;
+}
+.successRing {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--green-light); border: 2px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px; color: var(--green);
+}
+.successTitle { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.successSub   { font-size: 14.5px; color: var(--muted); margin-bottom: 28px; line-height: 1.65; }
+
+/* Repair ID box */
+.repairIdBox {
+  background: var(--bg-soft); border: 1.5px solid var(--border);
+  border-radius: var(--r-lg); padding: 18px 20px;
+  margin-bottom: 24px; overflow: hidden; width: 100%;
+}
+.repairIdLabel {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.repairIdRow {
+  display: flex; align-items: center;
+  justify-content: center; gap: 12px; flex-wrap: wrap;
+}
+.repairIdVal {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 800;
+  color: var(--blue); letter-spacing: .04em;
+  word-break: break-all; overflow-wrap: break-word;
+  max-width: 100%; line-height: 1.1;
+}
+.copyBtn { flex-shrink: 0; }
+
+/* Success info list */
+.successInfo     { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; text-align: left; }
+.successInfoItem { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--slate); line-height: 1.5; }
+.successInfoIcon { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+.successActions  { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ── Tablet  ≤ 768px ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page        { padding: 40px 16px 64px; }
+  .pageTitle   { font-size: 26px; }
+  .pageSub     { font-size: 14px; }
+  .stepContent { padding: 24px 20px 0; }
+  .alertMb     { margin: 16px 20px 0; }
+  .navBtns     { padding: 16px 20px; }
+}
+
+/* ── Mobile  ≤ 640px ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Page */
+  .page        { padding: 24px 12px 52px; }
+  .pageTitle   { font-size: 22px; }
+  .pageHead    { margin-bottom: 18px; }
+
+  /* Step bar — circles only, no text */
+  .stepLabel   { display: none; }
+  .stepCircle  { width: 30px; height: 30px; }
+  .stepLine    { margin: 0 4px; min-width: 8px; }
+  .stepBar     { margin-bottom: 18px; }
+
+  /* Form card */
+  .formCard    { border-radius: var(--r-lg); }
+  .stepContent { padding: 18px 14px 0; }
+  .alertMb     { margin: 12px 14px 0; }
+  .stepTitle   { font-size: 18px; }
+  .stepSub     { font-size: 13px; margin-bottom: 16px; }
+
+  /* Single column fields */
+  .formGrid    { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Problem tiles — 2 columns */
+  .problemGrid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .problemBtn  { padding: 12px 8px; gap: 5px; }
+  .problemIcon { font-size: 20px; }
+  .problemLabel{ font-size: 11px; }
+
+  /* Upload zone */
+  .uploadZone  { padding: 18px 14px; }
+  .uploadText  { font-size: 13px; }
+
+  /* Bottom nav */
+  .navBtns     { padding: 14px 14px; flex-wrap: wrap; }
+  .navRight    { gap: 8px; }
+  .stepCount   { font-size: 11px; }
+
+  /* Success screen */
+  .successWrap       { padding: 28px 14px; margin: 16px auto; }
+  .successTitle      { font-size: 20px; }
+  .successSub        { font-size: 13px; margin-bottom: 18px; }
+  .successRing       { width: 60px; height: 60px; margin-bottom: 16px; }
+
+  /* Repair ID — main fix */
+  .repairIdVal       { font-size: 28px; letter-spacing: .02em; }
+  .repairIdRow       { flex-direction: column; gap: 10px; align-items: center; }
+  .repairIdBox       { padding: 14px 12px; margin-bottom: 18px; }
+  .copyBtn           { width: 100%; justify-content: center; }
+
+  .successInfo       { gap: 8px; margin-bottom: 18px; }
+  .successInfoItem   { font-size: 12.5px; }
+
+  /* Stack action buttons full width */
+  .successActions          { flex-direction: column; gap: 8px; }
+  .successActions a,
+  .successActions button   { width: 100% !important; justify-content: center; }
+}
+
+/* ── Small phones  ≤ 400px ─────────────────────────────────── */
+@media (max-width: 400px) {
+  .page        { padding: 16px 10px 44px; }
+  .pageTitle   { font-size: 20px; }
+
+  .problemGrid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .problemBtn  { padding: 10px 6px; }
+  .problemIcon { font-size: 18px; }
+  .problemLabel{ font-size: 10px; }
+
+  .repairIdVal { font-size: 24px; }
+  .successWrap { padding: 20px 10px; }
+  .successTitle{ font-size: 18px; }
+}
