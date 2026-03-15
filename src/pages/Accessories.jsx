@@ -200,7 +200,7 @@ import { productAPI } from '../api/index.js'
 import styles from './Accessories.module.css'
 
 // ── Backend URL — all uploaded images are served from here ────
-const BACKEND = 'http://localhost:5000'
+const BACKEND = 'https://tmmh-backend.onrender.com'
 
 const CATEGORIES = [
   { value: 'all',            label: 'All Products' },
