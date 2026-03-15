@@ -148,8 +148,9 @@ export default function TrackRepair() {
               <p className={styles.timelineTitle}>Repair Progress</p>
               <div className={styles.timeline}>
                 {STATUS_STEPS.map((s, i) => {
-                  const done   = i < statusIndex
-                  const active = i === statusIndex
+                  // ✅ FIXED: when status is Completed, all steps including last one show green tick
+                  const done   = i < statusIndex || (i === statusIndex && result.status === 'Completed')
+                  const active = i === statusIndex && result.status !== 'Completed'
                   const future = i > statusIndex
 
                   return (
