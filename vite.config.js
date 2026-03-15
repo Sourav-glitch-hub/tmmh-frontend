@@ -8,7 +8,7 @@ export default defineConfig({
     // Proxy API calls to backend — avoids CORS issues in development
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://tmmh-backend.onrender.com',
         changeOrigin: true,
       },
     },
